@@ -1,0 +1,16 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/welcome/home.html.erb</p>
+
+
+  <%= form_tag  welcome_index_path, method: :get do %>
+
+
+        <%= datetime_field_tag :date1, params[:date1], id: 'date1'    %>
+        <%= button_tag type: :submit , class: 'btn btn-success' do %>
+        <%= 'Search' %>
+        <% end %>
+<% end %>
+</div>
+<div class="col-sm-3">
+
+</div>

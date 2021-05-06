@@ -1,0 +1,39 @@
+Started GET "/" for ::1 at 2021-05-06 06:49:25 +0530
+  [1m[35m (2.8ms)[0m  [1m[35mSET NAMES utf8mb4,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (Duration: 49.8ms | Allocations: 1338)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 24.3ms | Allocations: 95)
+  Rendered layouts/_sidemenu.html.erb (Duration: 18.5ms | Allocations: 101)
+Completed 200 OK in 2375ms (Views: 2240.5ms | ActiveRecord: 0.0ms | Allocations: 17956)
+
+
+Started GET "/welcome/index?date1=2021-04-20T18%3A51&button=" for ::1 at 2021-05-06 06:49:38 +0530
+Processing by WelcomeController#index as HTML
+  Parameters: {"date1"=>"2021-04-20T18:51", "button"=>""}
+  [1m[35m (964.5ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, `wlogs`.`Time` AS wlogs_time FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') GROUP BY `wlogs`.`Time`[0m
+  ↳ app/controllers/welcome_controller.rb:11:in `index'
+  [1m[35m (591.9ms)[0m  [1m[34mSELECT AVG(rt) AS average_rt, `wlogs`.`Methods` AS wlogs_methods FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') GROUP BY `wlogs`.`Methods`[0m
+  ↳ app/controllers/welcome_controller.rb:12:in `index'
+  [1m[35m (420.0ms)[0m  [1m[34mSELECT AVG(rt) AS average_rt, `wlogs`.`Time` AS wlogs_time FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') GROUP BY `wlogs`.`Time`[0m
+  ↳ app/controllers/welcome_controller.rb:14:in `index'
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, `wlogs`.`Time` AS wlogs_time FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') GROUP BY `wlogs`.`Time`[0m
+  ↳ app/models/wlog.rb:9:in `apdex'
+  [1m[35m (409.4ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, `wlogs`.`Time` AS wlogs_time FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') AND (RT <=0.03) GROUP BY `wlogs`.`Time`[0m
+  ↳ app/models/wlog.rb:10:in `apdex'
+  [1m[35m (399.3ms)[0m  [1m[34mSELECT COUNT(*) AS count_all, `wlogs`.`Time` AS wlogs_time FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') AND (RT > 0.03 AND RT < 0.12 ) GROUP BY `wlogs`.`Time`[0m
+  ↳ app/models/wlog.rb:11:in `apdex'
+  [1m[36mWlog Load (434.8ms)[0m  [1m[34mSELECT `wlogs`.`Time` FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') GROUP BY `wlogs`.`Time`[0m
+  ↳ app/models/wlog.rb:14:in `apdex'
+  Rendering welcome/index.html.erb within layouts/application
+  [1m[36mWlog Load (648.4ms)[0m  [1m[34mSELECT `wlogs`.* FROM `wlogs` WHERE (Time <= '2021-04-20 19:11:00' and Time >= '2021-04-20 18:51:00') AND (rt> 1 AND methods='GET') ORDER BY RT DESC[0m
+  ↳ app/views/welcome/index.html.erb:73
+  Rendered welcome/index.html.erb within layouts/application (Duration: 703.6ms | Allocations: 12687)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.1ms | Allocations: 6)
+  Rendered layouts/_sidemenu.html.erb (Duration: 0.1ms | Allocations: 5)
+Completed 200 OK in 4205ms (Views: 147.7ms | ActiveRecord: 3912.9ms | Allocations: 38015)
+
+
